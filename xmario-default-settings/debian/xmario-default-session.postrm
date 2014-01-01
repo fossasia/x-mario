@@ -1,0 +1,16 @@
+#!/bin/sh -e
+
+set -e
+
+case "$1" in
+  remove|purge)
+    if [ -x /usr/lib/lightdm/lightdm-set-defaults ] ; then
+      /usr/lib/lightdm/lightdm-set-defaults --remove --session=lxgames || true
+      /usr/lib/lightdm/lightdm-set-defaults --remove --greeter=lightdm-gtk-greeter || true
+    fi
+    ;;
+esac
+
+
+#DEBHELPER#
+exit 0

@@ -1,0 +1,2 @@
+#!/bin/sh
+lxsession-logout --banner "/usr/share/lubuntu/images/logout-banner.png" --side=top

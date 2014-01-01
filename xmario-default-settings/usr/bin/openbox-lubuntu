@@ -1,0 +1,2 @@
+#!/bin/sh
+exec openbox --config-file $XDG_CONFIG_HOME/openbox/lubuntu-rc.xml $@

@@ -1,0 +1,7 @@
+[Desktop Entry]
+# The names/descriptions should really be better
+Name=Lubuntu Netbook
+Comment=Lubuntu Netbook - Lightweight X11 desktop environment based on LXDE
+Exec=/usr/bin/startlubuntu-netbook
+# Icon=
+Type=Application

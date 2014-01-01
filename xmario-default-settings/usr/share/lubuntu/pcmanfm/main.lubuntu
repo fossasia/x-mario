@@ -1,0 +1,7 @@
+[General]
+terminal=lxterminal
+
+[Desktop]
+show_wallpaper=1
+wallpaper=/usr/share/lubuntu/wallpapers/lubuntu-default-wallpaper.png
+show_wm_menu=1

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=ScreenLock
+Name[zh_TW]=鎖住螢幕
+Comment=Lock your screen
+Icon=system-lock-screen
+Exec=xscreensaver-command -lock
+NoDisplay=true

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://openbox.org/
+                file:///usr/share/openbox/menu.xsd">
+
+<menu id="root-menu" label="Lubuntu">
+  <item label="PCManFM">
+    <action name="Execute">
+    <startupnotify><enabled>yes</enabled><icon>pcmanfm</icon></startupnotify>
+    <command>pcmanfm</command></action>
+  </item>
+  <item label="Lxterminal">
+    <action name="Execute"><command>lxterminal</command></action>
+  </item>
+  <item label="Browser">
+    <action name="Execute"><command>chromium-browser</command></action>
+  </item>
+</menu>
+  <menu id="root-menu" label="Settings">
+  <separator label="Settings" />
+  <menu id="apps-menu" />
+  <separator />
+  <menu id="client-list-menu" />
+  <separator />
+  <item label="Desktop Settings">
+    <action name="Execute">
+      <startupnotify><enabled>yes</enabled></startupnotify>
+      <command>pcmanfm --desktop-pref</command>
+    </action>
+  </item>
+  <item label="Window Management Settings">
+    <action name="Execute">
+      <startupnotify><enabled>yes</enabled><icon>openbox</icon></startupnotify>
+      <command>obconf</command>
+    </action>
+  </item>
+  <item label="Reload Config Files">
+    <action name="Reconfigure" />
+  </item>
+  <separator />
+  <item label="Exit">
+    <action name="Execute"><command>lubuntu-logout</command></action>
+  </item>
+</menu>
+
+</openbox_menu>

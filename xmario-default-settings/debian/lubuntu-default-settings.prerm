@@ -1,0 +1,12 @@
+#!/bin/sh -e
+
+set -e
+
+if [ "$1" = "remove" ] ; then
+  update-alternatives --remove lxdm.conf /etc/xdg/lubuntu/lxdm/lxdm.conf
+  update-alternatives --remove lightdm-gtk-greeter-config-derivative \
+    /etc/xdg/xdg-xubuntu/lightdm/lightdm-gtk-greeter.conf
+fi
+
+#DEBHELPER#
+exit 0

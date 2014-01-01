@@ -1,0 +1,303 @@
+lubuntu-default-settings (0.24) precise; urgency=low
+
+  * usr/share/lubuntu/openbox/menu.xml & rc.xml
+   - Re-synchronize with upstream.
+   - Workaround loose of focus of lxpanel run window (LP: #889414)
+   - Add a rule to maximize all new windows with type normal.
+   - Place new windows on the monitor with the mouse, rather than the primary
+     monitor.
+   - Use scrot -u -b (focused window with border) for the screenshot of the 
+     current window.
+   - Add a shortcut for the power button.
+  * usr/bin/startlubuntu* & usr/share/lubuntu/xscreensaver/xscreensaver:
+   - Add a custom configuration file for xscreensaver, with blank mode by
+     default (LP: #578789).
+  * etc/xdg/lubuntu/menus/lxgames-applications.menu :
+   - Add a specific menu structure for a games session.
+  * usr/bin/startlubuntu-lxgames :
+   - Add a new script to start a games session, with a specific menu structure.
+  * usr/share/xsessions/lxgames.desktop :
+   - Add a new session to start a games session.
+  * debian/control:
+   - Add new binaries, to configure default session on lightdm.
+  * Reorganize script in debian/ to handle the creation of the new
+    default-session binaries.
+  * debian/lubuntu-default-settings.install:
+   - Keep all files in lubuntu-default-settings. 
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Mon, 19 Dec 2011 00:25:04 +0100
+
+lubuntu-default-settings (0.22) precise; urgency=low
+
+  * Add a theme for lightdm (taking from Xubuntu, thanks Lionel Le Folgoc).
+  * Add etc/xdg/lubuntu/lightdm/lightdm-gtk-greeter.conf
+  * debian/{postinst,prerm}: install/remove alternatives to use our config
+    as /etc/lightdm/lightdm-gtk-greeter.conf.
+  * debian/control:
+   - add depends on lightdm-gtk-greeter >= 1.0.0-0ubuntu2.
+   - provides lightdm-gtk-greeter-config.
+   - Bump build-depends of debhelper for overrides support.
+  * debian/source/format:
+   - Switch to format 3.0 (native).
+  * debian/rules:
+   - Switch to dh syntax.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Tue, 08 Nov 2011 20:00:37 +0100
+
+lubuntu-default-settings (0.21) precise; urgency=low
+
+  * debian/postinst,debian/postrm: set Lubuntu as the default session and
+    lightdm-gtk-greeter as the default greeter if they aren't set already.
+    Remove them on uninstall. (thanks Didier and Lionel !)
+  * etc/xdg/lubuntu/lxdm/lxdm.conf:
+   - Fix location of the background.
+  * usr/bin/startlubuntu* & usr/share/lubuntu/leafpad/
+   - Install specific settings for leafpad, with Ubuntu font by default.
+  * etc/xdg/pcmanfm/pcmanfm.conf:
+   - Use Ubuntu font by default.
+  * usr/share/lubuntu/openbox/rc.xml:
+   - Use Ubuntu font by default instead of sans. (LP: #729885)
+  * usr/share/lxpanel/profile/Lubuntu/panels/panel:
+   - Set the color font of the panel to white to match the new theme.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Sun, 21 Aug 2011 00:27:21 +0200
+
+lubuntu-default-settings (0.20) precise; urgency=low
+
+  [ Jonathan Marsden ]
+  * etc/xdg/lubuntu/menus/lxde-applications.menu:
+   - Avoid Audio, Video and AudioVideo applications appearing
+     in the Accessories menu (duplicating Sound & Video entries).
+   - Avoid applications in both System and Utility categories
+     appearing in the Accessories menu (duplicating System Tools
+     entries). (LP: #779818)
+
+  [ Julien Lavergne ]
+  * usr/share/lubuntu/openbox/rc.xml
+   - Add Super_L, Super_R and ALt-F1 to keybindings for opening the menu. 
+  * etc/xdg/lxsession/*/autostart:
+   - Don't autostart nm-applet, should be autostarted automatically.
+   - Use xfce4-power-manager instead of gnome-power-manager which depends now
+     on gnome-settings-daemon.
+  * etc/xdg/lubuntu/lxdm/lxdm.conf:
+   - Update with version in lxdm 0.4.0. 
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Thu, 28 Jul 2011 23:42:29 +0200
+
+lubuntu-default-settings (0.19) natty; urgency=low
+
+  * etc/xdg/lubuntu/applications/default.list:
+    - Set Chromium as the default handler for http/https
+    - Use libreoffice instead of ooo2
+    - Set apturl as the default handler for apturl
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Mon, 25 Apr 2011 21:11:38 +0200
+
+lubuntu-default-settings (0.18) natty; urgency=low
+
+  * etc/xdg/lubuntu/menus/lxde-applications.menu:
+   - Set name of the menu to Applications, to fix libfm-pref-apps.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Thu, 17 Mar 2011 18:59:59 +0100
+
+lubuntu-default-settings (0.17) natty; urgency=low
+
+  [ Julien Lavergne ]
+  * etc/xdg/lubuntu/menus/lxde-applications.menu:
+   - Add a specific menu structure for lubuntu session.
+  * etc/xdg/lubuntu/lxdm/lxdm.conf
+   - Remove background option, it's already defined by the theme, and can break
+     it sometimes (LP: #703658).
+
+  [ Jonathan Marsden ]
+  * etc/xdg/lubuntu/menus/lxde-applications.menu:
+   - Update DTD to use standards.freedesktop.org
+   - Move system-wide admin tools to System -> Administration menu
+     (LP: #650432)
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Mon, 21 Feb 2011 01:51:14 +0100
+
+lubuntu-default-settings (0.16) natty; urgency=low
+
+  * usr/bin
+   - Sync XDG_DATA_DIRS with lxde-common
+  * usr/share/lubuntu/openbox/rc.xml:
+   - Remove some unused code.
+  * debian/control
+   - Recommends amixer, scrot and galculator for some openbox keybindings.
+  * etc/xdg/pcmanfm/lubuntu.conf
+   - Move configuration file to etc/xdg/pcmanfm/lubuntu/pcmanfm.conf
+     (LP: #684796)
+  * debian/postrm,preinst,postinst
+   - Handle the location change for pcmanfm configuration using
+     dpkg-maintscript-helper.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Mon, 06 Dec 2010 01:12:57 +0100
+
+lubuntu-default-settings (0.15) natty; urgency=low
+
+  * usr/bin/startlubuntu*
+   - Remove export XLIB_SKIP_ARGB_VISUALS=1, not needed since rgba support was
+     removed from gtk (LP: #673704).
+  * etc/xdg/lubuntu/applications/default.list:
+   - Set file-roller to open archives instead of xarchiver.
+   - Set audacious to open music files instead of aqualung.
+  * etc/xdg/lxsession/Lubuntu*/desktop.conf
+   - Switch to Ubuntu 11 font.
+  * debian/control:
+   - Depends on ttf-ubuntu-font-family.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Fri, 03 Dec 2010 00:01:34 +0100
+
+lubuntu-default-settings (0.14) natty; urgency=low
+
+  * etc/xdg/lubuntu/lxdm/lxdm.conf
+   - Enable user list in lxdm 0.3.0.
+  * etc/xdg/lubuntu/applications/default.list
+   - Replace epdfview by evince. LP: #657335
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Tue, 09 Nov 2010 22:53:38 +0100
+
+lubuntu-default-settings (0.13) maverick; urgency=low
+ 
+  * debian/postinst:
+   - Don't fail if the alternative file doesn't exist. (LP: #654211)
+ 
+ -- Julien Lavergne <gilir@ubuntu.com>  Mon, 04 Oct 2010 23:16:56 +0200
+
+lubuntu-default-settings (0.12) maverick; urgency=low
+
+  * debian/postinst:
+   - Remove alternatives file if it's not a symlink (LP: #625485).
+  * debian/prerm:
+   - Don't remove alternative on upgrade.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Sun, 03 Oct 2010 16:02:19 +0200
+
+lubuntu-default-settings (0.11) maverick; urgency=low
+
+  * usr/share/lubuntu/openbox/rc.xml:
+   - Use lxtask instead of xfce4-taskmanager (LP: #621317)
+  * etc/xdg/lxsession/Lubuntu*/desktop.conf
+   - Switch to lubuntu icon them.
+  * debian/control:
+   - Depends on lubuntu-icon-theme.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Wed, 29 Sep 2010 00:33:56 +0200
+
+lubuntu-default-settings (0.10) maverick; urgency=low
+
+  * etc/xdg/lxsession/Lubuntu*/desktop.conf
+   - Set some Xft keys for better font rendering by default. LP: #518168
+  * Set default gtk theme to Lubuntu-default.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Mon, 02 Aug 2010 22:54:46 +0200
+
+lubuntu-default-settings (0.9) maverick; urgency=low
+
+  * usr/bin
+   - Add export XLIB_SKIP_ARGB_VISUALS=1 to disable rgba support, since
+     lxpanel doesn't support it. (See #589763)
+   - Remove check for pcmanfm conf file in home directory, pcmanfm2 handle
+     it correctly.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Sun, 13 Jun 2010 10:54:23 +0200
+
+lubuntu-default-settings (0.8) maverick; urgency=low
+
+  * debian/control
+   - Depends on the re-written pcmanfm (>= 0.9.5).
+  * usr/share/lubuntu/openbox/menu.xml:
+   - Use new command to launch desktop settings.
+  * autostart: 
+   - Use new pcmanfm --desktop command to start pcmanfm with desktop management
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Wed, 02 Jun 2010 01:28:01 +0200
+
+lubuntu-default-settings (0.7) maverick; urgency=low
+
+  * usr/bin/start* :
+   - Ensure the menu prefix
+  * etc/xdg/lubuntu/lxdm/lxdm.conf
+   - Make Lubuntu the default session by using the [base] session key.
+   - Remove last_*, not provided by lxdm.conf in recent lxdm version.
+  * usr/share/lubuntu/openbox/rc.xml
+   - Add missing shortcuts for volume-up and volume-down, and launching
+     various applications. Thanks Kendall Weaver for the patch.
+  * debian/control
+   - Wrap build-depends and depends.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Fri, 21 May 2010 19:13:16 +0200
+
+lubuntu-default-settings (0.6) lucid; urgency=low
+
+  * Set iconsize to 22 and panel height to 24 for panel settings. It displays
+    correct icons size for panel icons. Thanks Leszek Lesner.
+  * usr/bin/start* : 
+   - From LXDE upstream, make sure dbus is launched when it's necessary.
+   - Add polkit-gnome-authentification-agent-1 to make polkit working again.
+  * Add custom defaults.list for applications by default.
+  * debian/dirs: Add /etc/lxdm, to be sure the directory exit (LP: #527482).
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Mon, 01 Mar 2010 00:35:26 +0100
+
+lubuntu-default-settings (0.5) lucid; urgency=low
+
+  * Add new Lubuntu-Netbook session, which launched lxlauncher by default.
+  * Add new configuration of lxdm for Lubuntu.
+  * debian/postinst & debian/prerm: Add a alternative lxdm.conf for Lubuntu
+    settings.
+  * autostart : Add nm-applet to the sessions.
+  * Use system-shutdown-panel icon for shutdown command and clean Encoding keys
+  * Use Chromium instead of Firefox inthe  panel and openbox configuration.
+  * Remove cpu and netstat plugin, and move volume applet before the tray.
+  * Complete openbox keybindings for taking screenshot. Thanks Adam for the
+    patch.
+  * Switch to Lubuntu custom theme :
+    - debian/control : Depends on lubuntu-artwork (>= 0.4) and 
+      elementary-icon-theme.
+    - desktop.conf : Use elementary-monochrome for icon theme.
+    - Use Clearlooks for Openbox theme.
+    - Use black font color for the panel.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Wed, 17 Feb 2010 20:39:21 +0100
+
+lubuntu-default-settings (0.4) lucid; urgency=low
+
+  * Remove spacer before the menu applet on the panel.
+  * Use openbox menu on the desktop indead of pcmanfm one.
+  * Install configuration file for QT apps if no one is installed, and set
+    QT style=GTK+.
+  * Merge Leszek Lesner openbox settings. 
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Sun, 24 Jan 2010 19:57:14 +0100
+
+lubuntu-default-settings (0.3) lucid; urgency=low
+
+  * Pass -e LXDE to lxsession to behave like a LXDE session.
+    Bump depends on lxsession to >= 0.4.1 to use this feature.
+  * Remove autostart for lxde-settings-daemon, it merged with lxsession.
+  * Change path to the wallpaper to a png file rather than a jpg. Bump depends
+    on lubuntu-artwork (>= 0.3) 
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Sun, 13 Dec 2009 11:19:35 +0100
+
+lubuntu-default-settings (0.2) lucid; urgency=low
+
+  * Add the volume applet to the panel to have a way to configure 
+    the sound
+  * Autostart gnome-power-manager to add power management support and 
+    the battery icon in notification-area
+  * Set the terminal for pcmanfm to lxterminal
+  * Move lxpanel background for Lubuntu to a specific file.
+  * Use /etc/xdg/lubuntu to store custom configuration files.
+  * Remove config file for lxsession, all is in desktop.conf
+  * Depends on lubuntu-artwork (>= 0.2) to bring the new lxpanel background.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Sat, 28 Nov 2009 00:21:07 +0100
+
+lubuntu-default-settings (0.1) lucid; urgency=low
+
+  * Initial upload (LP: #475649)
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Thu, 05 Nov 2009 18:52:56 +0100

@@ -1,0 +1,7 @@
+[Desktop Entry]
+# The names/descriptions should really be better
+Name=LX Games
+Comment=LX Games - A collection of games, using LXDE desktop.
+Exec=/usr/bin/startlubuntu-lxgames
+# Icon=
+Type=Application

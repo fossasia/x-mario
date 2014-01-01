@@ -1,0 +1,40 @@
+Source: lubuntu-default-settings
+Section: x11
+Priority: optional
+Maintainer: Julien Lavergne <gilir@ubuntu.com>
+Build-Depends: debhelper (>= 7.0.50~), 
+               intltool
+Standards-Version: 3.8.3
+Homepage: https://launchpad.net/~lubuntu-desktop
+Vcs-Bzr: lp:~lubuntu-desktop/+junk/lubuntu-default-settings
+Vcs-Browser: http://bazaar.launchpad.net/~lubuntu-desktop/+junk/lubuntu-default-settings/files
+
+Package: lubuntu-default-settings
+Architecture: all
+Depends: ${misc:Depends}, 
+         lxsession (>= 0.4.1), 
+         lubuntu-artwork (>= 0.4), 
+         lubuntu-icon-theme,
+         pcmanfm (>= 0.9.5),
+         ttf-ubuntu-font-family,
+         lightdm-gtk-greeter (>= 1.0.0-0ubuntu2)
+Recommends: amixer,
+            scrot,
+            galculator
+Provides: lightdm-gtk-greeter-config
+Description: default settings for Lubuntu
+ Various system settings tailored for Lubuntu.
+
+Package: xmario-default-session
+Architecture: all
+Depends: ${misc:Depends},
+         lubuntu-default-settings
+Description: Set default session to xmario
+ Set default session to lxgames.
+
+Package: lubuntu-default-session
+Architecture: all
+Depends: ${misc:Depends},
+         lubuntu-default-settings
+Description: Set default session to lxgames
+ Set default session to lxgames.
